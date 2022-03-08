@@ -4,6 +4,7 @@
 
 <script>
 	import Counter from '$lib/Counter.svelte';
+	import { isOverlayOpen } from '../stores/OverlayStore';
 </script>
 
 <svelte:head>
@@ -22,6 +23,13 @@
 		to your new<br />SvelteKit app
 	</h1>
 
+	{$isOverlayOpen}
+	<button
+		class="bg-purple-900 text-purple-100 p-4 my-4 rounded-md"
+		on:click={() => {
+			isOverlayOpen.set(true);
+		}}>Open Overlay</button
+	>
 	<h2>
 		try editing <strong>src/routes/index.svelte</strong>
 	</h2>

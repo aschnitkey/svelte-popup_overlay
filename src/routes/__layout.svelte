@@ -1,10 +1,18 @@
 <script>
 	import Header from '$lib/header/Header.svelte';
+	import Overlay from '../components/Overlay.svelte';
 	import '../app.css';
+	import { isOverlayOpen } from '../stores/OverlayStore';
 </script>
 
 <Header />
 
+{#if $isOverlayOpen}
+	<Overlay>
+		<h1 class="text-white text-4xl">OVERLAY!!!</h1>
+		<p class="text-white text-center">This is pretty cool!</p>
+	</Overlay>
+{/if}
 <main>
 	<slot />
 </main>
